@@ -1,0 +1,2616 @@
+.version sol 0.58.2
+
+.macro constructor
+DROP
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+GETGLOB 6
+THROWIF 51
+ENDS
+.loc AuctionManager.sol, 44
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+THROWIFNOT 203
+.loc AuctionManager.sol, 45
+ACCEPT
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro startAuctions
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 56
+LDU 64
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $startAuctions_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro startAuctions_internal_macro
+.loc AuctionManager.sol, 56
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc AuctionManager.sol, 219
+GETGLOB 9
+GETGLOB 11
+SDEQ
+THROWIFNOT 202
+.loc common/DeplantBase.sol, 45
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+PUSHINT 0
+RAWRESERVE
+.loc AuctionManager.sol, 57
+DEPTH
+ADDCONST -2
+PICK
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GREATER
+THROWIFNOT 666
+.loc AuctionManager.sol, 58
+GETGLOB 14
+CTOS
+SEMPTY
+THROWIF 300
+.loc AuctionManager.sol, 59
+GETGLOB 15
+CTOS
+SEMPTY
+THROWIF 301
+.loc AuctionManager.sol, 60
+GETGLOB 16
+CTOS
+SEMPTY
+THROWIF 302
+.loc AuctionManager.sol, 61
+GETGLOB 13
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 304
+.loc AuctionManager.sol, 62
+GETGLOB 12
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 303
+.loc AuctionManager.sol, 67
+GETGLOB 19
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+PUSHCONT {
+	.loc AuctionManager.sol, 68
+	GETGLOB 19
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 42045022170482489768618347945393405442361890560291
+	STUR 167
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IFNOT
+.loc AuctionManager.sol, 70
+GETGLOB 20
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+PUSHCONT {
+	.loc AuctionManager.sol, 71
+	GETGLOB 20
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 42045022170482489768618347945393405442361890560291
+	STUR 167
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IFNOT
+.loc AuctionManager.sol, 75
+DUP
+TRUE
+CALLREF {
+	CALL $_deployAuction_internal_macro$
+}
+SETGLOB 19
+.loc AuctionManager.sol, 76
+TRUE
+OVER
+GETGLOB 19
+PUSHSLICE xc0000000000000000000000000117310c1
+NEWC
+STSLICE
+STSLICE
+STU 64
+STI 1
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc AuctionManager.sol, 78
+DUP
+FALSE
+CALLREF {
+	CALL $_deployAuction_internal_macro$
+}
+SETGLOB 20
+.loc AuctionManager.sol, 79
+FALSE
+SWAP
+GETGLOB 20
+PUSHSLICE xc0000000000000000000000000117310c1
+NEWC
+STSLICE
+STSLICE
+STU 64
+STI 1
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc common/DeplantBase.sol, 88
+GETGLOB 9
+.loc common/DeplantBase.sol, 50
+NEWC
+STSLICECONST x62_
+STSLICE
+PUSHINT 111
+STZEROES
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.macro revealAuctions
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 82
+LDU 128
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $revealAuctions_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro revealAuctions_internal_macro
+.loc AuctionManager.sol, 82
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc AuctionManager.sol, 219
+GETGLOB 9
+GETGLOB 11
+SDEQ
+THROWIFNOT 202
+.loc common/DeplantBase.sol, 45
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+PUSHINT 0
+RAWRESERVE
+.loc AuctionManager.sol, 83
+DEPTH
+ADDCONST -2
+PICK
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GREATER
+THROWIFNOT 666
+.loc AuctionManager.sol, 84
+DUP
+GTINT 0
+THROWIFNOT 305
+.loc AuctionManager.sol, 85
+DUP
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 19
+NEWC
+STSLICECONST x62_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1248982768
+STUR 139
+STU 128
+ENDC
+PUSHINT 1
+SENDRAWMSG
+.loc AuctionManager.sol, 86
+CALLREF {
+	CALL $_reversePrice_internal_macro$
+}
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 20
+NEWC
+STSLICECONST x62_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1248982768
+STUR 139
+STU 128
+ENDC
+PUSHINT 1
+SENDRAWMSG
+.loc common/DeplantBase.sol, 88
+GETGLOB 9
+.loc common/DeplantBase.sol, 50
+NEWC
+STSLICECONST x62_
+STSLICE
+PUSHINT 111
+STZEROES
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.macro tradeAuctions
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 89
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $tradeAuctions_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro tradeAuctions_internal_macro
+.loc AuctionManager.sol, 89
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc AuctionManager.sol, 219
+GETGLOB 9
+GETGLOB 11
+SDEQ
+THROWIFNOT 202
+.loc common/DeplantBase.sol, 45
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+PUSHINT 0
+RAWRESERVE
+.loc AuctionManager.sol, 90
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 19
+NEWC
+STSLICECONST x62_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 784400452
+STUR 139
+ENDC
+PUSHINT 1
+SENDRAWMSG
+.loc AuctionManager.sol, 91
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 20
+NEWC
+STSLICECONST x62_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 784400452
+STUR 139
+ENDC
+PUSHINT 1
+SENDRAWMSG
+.loc common/DeplantBase.sol, 88
+GETGLOB 9
+.loc common/DeplantBase.sol, 50
+NEWC
+STSLICECONST x62_
+STSLICE
+PUSHINT 111
+STZEROES
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.macro setNEVERRoot
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 94
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setNEVERRoot_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setNEVERRoot_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 95
+SETGLOB 12
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setEVERReserve
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 98
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setEVERReserve_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setEVERReserve_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 99
+SETGLOB 13
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setAuctionCode
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 102
+LDREF
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setAuctionCode_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setAuctionCode_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 103
+SETGLOB 14
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setEVERBidCode
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 106
+LDREF
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setEVERBidCode_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setEVERBidCode_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 107
+SETGLOB 15
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setNEVERBidCode
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 110
+LDREF
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setNEVERBidCode_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setNEVERBidCode_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 111
+SETGLOB 16
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setMinBid
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 114
+LDU 128
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setMinBid_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setMinBid_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 115
+SETGLOB 18
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setLoserFactor
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 118
+LDU 128
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setLoserFactor_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setLoserFactor_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 119
+SETGLOB 17
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setGovernance
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 122
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setGovernance_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setGovernance_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 123
+SETGLOB 10
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro setElector
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 126
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $setElector_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setElector_internal_macro
+.loc AuctionManager.sol, 226
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+GETGLOB 2
+EQUAL
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 227
+	ACCEPT
+}
+PUSHCONT {
+	GETGLOB 9
+	GETGLOB 10
+	SDEQ
+	GETGLOB 10
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	SDEQ
+	NOT
+	AND
+	PUSHCONT {
+		.loc common/DeplantBase.sol, 45
+		PUSHINT 500000
+		.loc common/DeplantBase.sol, 40
+		MYADDR
+		PARSEMSGADDR
+		THIRD
+		CALLREF {
+			CALL $__gasToTon_macro$
+		}
+		.loc common/DeplantBase.sol, 0
+		PUSHINT 0
+		RAWRESERVE
+	}
+	PUSHCONT {
+		.loc AuctionManager.sol, 231
+		THROW 203
+	}
+	IFELSE
+}
+IFELSE
+.loc AuctionManager.sol, 127
+SETGLOB 11
+.loc AuctionManager.sol, 234
+GETGLOB 9
+GETGLOB 10
+SDEQ
+GETGLOB 10
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SDEQ
+NOT
+AND
+PUSHCONT {
+	.loc AuctionManager.sol, 235
+	GETGLOB 9
+	.loc common/DeplantBase.sol, 50
+	NEWC
+	STSLICECONST x62_
+	STSLICE
+	PUSHINT 111
+	STZEROES
+	ENDC
+	PUSHINT 128
+	SENDRAWMSG
+	.loc AuctionManager.sol, 0
+}
+IF
+.loc AuctionManager.sol, 0
+
+.macro acceptMintEVER
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 130
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+LDU 128
+LDREF
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $acceptMintEVER_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro acceptMintEVER_internal_macro
+.loc AuctionManager.sol, 130
+DROP
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+GETGLOB 19
+GETGLOB 15
+PUSH S3
+.loc AuctionManager.sol, 240
+CALLREF {
+	CALL $_bidInit_internal_macro$
+}
+DROP
+.loc AuctionManager.sol, 241
+GETGLOB 9
+SDEQ
+THROWIFNOT 205
+.loc AuctionManager.sol, 132
+SWAP
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 13
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROTREV
+NEWC
+STSLICECONST x16f4a749
+STSLICE
+STU 128
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.macro acceptMintNEVER
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 138
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+LDU 128
+LDREF
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $acceptMintNEVER_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro acceptMintNEVER_internal_macro
+.loc AuctionManager.sol, 138
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+GETGLOB 20
+GETGLOB 16
+PUSH S4
+.loc AuctionManager.sol, 246
+CALLREF {
+	CALL $_bidInit_internal_macro$
+}
+DROP
+.loc AuctionManager.sol, 247
+GETGLOB 9
+SDEQ
+THROWIFNOT 205
+.loc AuctionManager.sol, 141
+TRUE
+PUSH S3
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+BLKSWAP 2, 4
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 12
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 6
+NEWC
+STSLICECONST x20bfb3b8
+STU 128
+STSLICE
+STU 128
+ROLLREV 3
+NEWC
+STSLICE
+STI 1
+STREF
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.macro acceptBurnNEVER
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc AuctionManager.sol, 151
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+LDU 128
+LDREF
+ENDS
+.loc AuctionManager.sol, 0
+CALLREF {
+	CALL $acceptBurnNEVER_internal_macro$
+}
+IFREF {
+	CALL $upd_only_time_in_c4$
+}
+THROW 0
+
+.macro acceptBurnNEVER_internal_macro
+.loc AuctionManager.sol, 151
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+GETGLOB 20
+GETGLOB 16
+PUSH S4
+.loc AuctionManager.sol, 246
+CALLREF {
+	CALL $_bidInit_internal_macro$
+}
+DROP
+.loc AuctionManager.sol, 247
+GETGLOB 9
+SDEQ
+THROWIFNOT 205
+.loc AuctionManager.sol, 153
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+PUSH S3
+BLKSWAP 2, 3
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 12
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 5
+NEWC
+STSLICECONST x0c98682c
+STU 128
+STSLICE
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STREF
+STBREFR
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.globl	_deployAuction_internal
+.type	_deployAuction_internal, @function
+CALL $_deployAuction_internal_macro$
+
+.macro _deployAuction_internal_macro
+.loc AuctionManager.sol, 166
+DUP2
+CALLREF {
+	CALL $_auctionInit_internal_macro$
+}
+.loc AuctionManager.sol, 167
+GETGLOB 11
+MYADDR
+PUSHINT 0
+PUSH S5
+PUSHCONT {
+	GETGLOB 13
+}
+PUSHCONT {
+	GETGLOB 12
+}
+IFELSE
+ROLL 6
+PUSHCONT {
+	GETGLOB 12
+}
+PUSHCONT {
+	GETGLOB 13
+}
+IFELSE
+ROLL 7
+GETGLOB 18
+PUSHINT 0
+GETGLOB 17
+TUPLE 9
+.loc AuctionManager.sol, 180
+SWAP
+DUP
+HASHCU
+MYADDR
+PARSEMSGADDR
+THIRD
+NEWC
+STSLICECONST x9_
+STI 8
+STU 256
+ROTREV
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+ROLL 3
+NEWC
+STSLICECONST x42_
+STB
+SWAP
+STGRAMS
+PUSHINT 3
+STUR 107
+OVER
+CALLREF {
+	CTOS
+	LDI 1
+	SWAP
+	PUSHCONT {
+		LDI 5
+		NIP
+	}
+	IF
+	LDI 1
+	SWAP
+	PUSHCONT {
+		LDI 2
+		NIP
+	}
+	IF
+	LDOPTREF
+	LDOPTREF
+	LDDICT
+	ENDS
+	BLKDROP 3
+}
+STREF
+STSLICECONST 1
+SWAP
+NEWC
+STSLICECONST x3c2f3f8b
+SWAP
+UNTUPLE 9
+REVERSE 10, 0
+STSLICE
+ROLLREV 8
+NEWC
+STSLICE
+STU 16
+ROLLREV 6
+NEWC
+STSLICE
+ROLLREV 5
+NEWC
+STSLICE
+STU 64
+STU 128
+STU 128
+SWAP
+NEWC
+STU 128
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+PUSHINT 1
+SENDRAWMSG
+.loc AuctionManager.sol, 0
+
+.globl	_auctionInit_internal
+.type	_auctionInit_internal, @function
+CALL $_auctionInit_internal_macro$
+
+.macro _auctionInit_internal_macro
+.loc AuctionManager.sol, 186
+PUSHINT 0
+NEWC
+STU 256
+PUSHINT 0
+NEWDICT
+PUSHINT 64
+DICTUSETB
+MYADDR
+PUSHINT 1
+ROT
+PUSHINT 64
+DICTUSET
+SWAP
+PUSHCONT {
+	GETGLOB 15
+}
+PUSHCONT {
+	GETGLOB 16
+}
+IFELSE
+PUSHINT 2
+ROT
+PUSHINT 64
+DICTUSETREF
+SWAP
+NEWC
+STU 64
+PUSHINT 3
+ROT
+PUSHINT 64
+DICTUSETB
+NEWC
+STDICT
+ENDC
+GETGLOB 14
+NEWC
+STSLICECONST x2_
+STOPTREF
+STOPTREF
+STZERO
+ENDC
+.loc AuctionManager.sol, 196
+DUP
+HASHCU
+NEWC
+STSLICECONST x801_
+STU 256
+ENDC
+CTOS
+SWAP
+.loc AuctionManager.sol, 0
+
+.globl	_bidInit_internal
+.type	_bidInit_internal, @function
+CALL $_bidInit_internal_macro$
+
+.macro _bidInit_internal_macro
+.loc AuctionManager.sol, 201
+PUSHINT 0
+NEWC
+STU 256
+PUSHINT 0
+NEWDICT
+PUSHINT 64
+DICTUSETB
+ROLL 3
+PUSHINT 1
+ROT
+PUSHINT 64
+DICTUSET
+SWAP
+PUSHINT 2
+ROT
+PUSHINT 64
+DICTUSET
+NEWC
+STDICT
+ENDC
+SWAP
+NEWC
+STSLICECONST x2_
+STOPTREF
+STOPTREF
+STZERO
+ENDC
+.loc AuctionManager.sol, 210
+DUP
+HASHCU
+NEWC
+STSLICECONST x801_
+STU 256
+ENDC
+CTOS
+SWAP
+.loc AuctionManager.sol, 0
+
+.globl	_reversePrice_internal
+.type	_reversePrice_internal, @function
+CALL $_reversePrice_internal_macro$
+
+.macro _reversePrice_internal_macro
+.loc common/DeplantBase.sol, 56
+PUSHINT 1000000000
+DUP
+ROT
+MULDIVC
+UFITS 128
+.loc common/DeplantBase.sol, 0
+
+.globl	_exchange_internal
+.type	_exchange_internal, @function
+CALL $_exchange_internal_macro$
+
+.macro _exchange_internal_macro
+.loc common/DeplantBase.sol, 66
+PUSHINT 1000000000
+MULDIV
+UFITS 128
+.loc common/DeplantBase.sol, 0
+
+.macro c4_to_c7
+PUSHROOT
+CTOS
+LDU 256 ; pubkey c4
+LDU 64 ; pubkey timestamp c4
+LDU 1 ; ctor flag
+NIP
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+LDREF
+LDREF
+LDU 128
+LDU 128
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDU 32
+ENDS
+SETGLOB 21
+SETGLOB 20
+SETGLOB 19
+SETGLOB 18
+SETGLOB 17
+SETGLOB 16
+SETGLOB 15
+SETGLOB 14
+SETGLOB 13
+SETGLOB 12
+SETGLOB 11
+SETGLOB 10
+SETGLOB 3
+SETGLOB 2
+
+.macro c4_to_c7_with_init_storage
+PUSHROOT
+CTOS
+SBITS
+GTINT 1
+PUSHCONT {
+	PUSHINT 0
+	PUSHROOT
+	CTOS
+	PLDDICT ; D
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	BLKPUSH 3, 0
+	PUSHREF {
+	}
+	BLKPUSH 2, 0
+	PUSHINT 0
+	DUP
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	DUP
+	PUSHINT 0
+	SETGLOB 21
+	SETGLOB 20
+	SETGLOB 19
+	SETGLOB 18
+	SETGLOB 17
+	SETGLOB 16
+	SETGLOB 15
+	SETGLOB 14
+	SETGLOB 13
+	SETGLOB 12
+	SETGLOB 11
+	SETGLOB 10
+	PUSHINT 64
+	DICTUGET
+	THROWIFNOT 61
+	PLDU 256
+	SETGLOB 2
+	PUSHINT 0 ; timestamp
+	SETGLOB 3
+	PUSHINT 1000000000000000
+	SETGLOB 17
+	PUSHINT 100000000000000
+	SETGLOB 18
+	PUSHINT 95
+	SETGLOB 21
+}
+IFREFELSE {
+	CALL $c4_to_c7$
+}
+
+.macro c7_to_c4
+GETGLOB 21
+GETGLOB 20
+GETGLOB 19
+GETGLOB 18
+GETGLOB 17
+GETGLOB 16
+GETGLOB 15
+GETGLOB 14
+GETGLOB 13
+GETGLOB 12
+GETGLOB 11
+GETGLOB 10
+GETGLOB 3
+GETGLOB 2
+NEWC
+STU 256
+STU 64
+STONE
+STSLICE
+ROLLREV 11
+NEWC
+STSLICE
+ROLLREV 10
+NEWC
+STSLICE
+ROLLREV 9
+NEWC
+STSLICE
+STREF
+STREF
+STREF
+STU 128
+STU 128
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STU 32
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+POPROOT
+
+.macro upd_only_time_in_c4
+PUSHROOT
+CTOS
+LDU 256
+LDU 64
+NIP
+GETGLOB 3
+ROT
+NEWC
+STU 256
+STU 64
+STSLICE
+ENDC
+POPROOT
+
+.internal-alias :main_internal, 0
+.internal :main_internal
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSH S2
+CTOS
+LDU 4 ; bounced tail
+LDMSGADDR ; bounced src tail
+DROP
+SETGLOB 9
+MODPOW2 1
+IFRET
+OVER
+SEMPTY ; isEmpty
+IFJMPREF {
+	GETGLOB 6
+	THROWIFNOT 76
+}
+OVER
+LDUQ 32  ; [funcId] body' ok
+THROWIFNOT 60
+OVER
+IFNOTJMPREF {
+	GETGLOB 6
+	THROWIFNOT 76
+}
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.internal-alias :main_external, -1
+.internal :main_external
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 9
+OVER
+CALLREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+LDU 1 ; haveSign msgSlice
+SWAP
+PUSHCONT {
+	PUSHINT 512
+	LDSLICEX ; signatureSlice msgSlice
+	DUP
+	HASHSU ; signatureSlice msgSlice hashMsgSlice
+	ROT
+	GETGLOB 2
+	DUP
+	SETGLOB 5
+	CHKSIGNU ; msgSlice isSigned
+	THROWIFNOT 40
+}
+IF
+LDU 64 ; timestamp msgSlice
+SWAP
+CALL $replay_protection_macro$
+LDU 32 ; expireAt msgSlice
+SWAP
+NOW ; msgSlice expireAt now
+GREATER ; msgSlice expireAt>now
+THROWIFNOT 57
+LDU 32 ; funcId body
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.macro _governance
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 10
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000cc62ab9a
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _elector
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 11
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000b6949148
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _neverRoot
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 12
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000ee9b7ef4
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _everReserve
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 13
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000d81b2468
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _auctionCode
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 14
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000e7a318ef
+	NEWC
+	STSLICE
+	STREF
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _everBidCode
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 15
+OVER
+PUSHCONT {
+	PUSHSLICE xc00000000000000000000000009fb54ceb
+	NEWC
+	STSLICE
+	STREF
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _neverBidCode
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 16
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000b039ab28
+	NEWC
+	STSLICE
+	STREF
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _loserFactor
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 17
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000e0ea2668
+	NEWC
+	STSLICE
+	STU 128
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _minBid
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 18
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000f9c19911
+	NEWC
+	STSLICE
+	STU 128
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _currentBuyNEVERAuction
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 19
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000896361d6
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _currentBuyEVERAuction
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 20
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000b9198569
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro public_function_selector
+DUP
+PUSHINT 1443681537
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 336840491
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 71123060
+		EQUAL
+		IFJMPREF {
+			CALL $setElector$
+		}
+		DUP
+		PUSHINT 85878018
+		EQUAL
+		IFJMPREF {
+			CALL $setEVERBidCode$
+		}
+		DUP
+		PUSHINT 157508054
+		EQUAL
+		IFJMPREF {
+			CALL $_currentBuyNEVERAuction$
+		}
+		DUP
+		PUSHINT 336840491
+		EQUAL
+		IFJMPREF {
+			CALL $setGovernance$
+		}
+	}
+	DUP
+	PUSHINT 707119297
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 511522250
+		EQUAL
+		IFJMPREF {
+			CALL $setLoserFactor$
+		}
+		DUP
+		PUSHINT 531975403
+		EQUAL
+		IFJMPREF {
+			CALL $_everBidCode$
+		}
+		DUP
+		PUSHINT 669977153
+		EQUAL
+		IFJMPREF {
+			CALL $tradeAuctions$
+		}
+		DUP
+		PUSHINT 707119297
+		EQUAL
+		IFJMPREF {
+			CALL $revealAuctions$
+		}
+	}
+	DUP
+	PUSHINT 988366584
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 809085736
+		EQUAL
+		IFJMPREF {
+			CALL $_neverBidCode$
+		}
+		DUP
+		PUSHINT 915706184
+		EQUAL
+		IFJMPREF {
+			CALL $_elector$
+		}
+		DUP
+		PUSHINT 957973865
+		EQUAL
+		IFJMPREF {
+			CALL $_currentBuyEVERAuction$
+		}
+		DUP
+		PUSHINT 988366584
+		EQUAL
+		IFJMPREF {
+			CALL $setEVERReserve$
+		}
+	}
+	DUP
+	PUSHINT 1443681537
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 1020358695
+		EQUAL
+		IFJMPREF {
+			CALL $setNEVERBidCode$
+		}
+		DUP
+		PUSHINT 1203655291
+		EQUAL
+		IFJMPREF {
+			CALL $acceptMintEVER$
+		}
+		DUP
+		PUSHINT 1281534874
+		EQUAL
+		IFJMPREF {
+			CALL $_governance$
+		}
+		DUP
+		PUSHINT 1443681537
+		EQUAL
+		IFJMPREF {
+			CALL $setNEVERRoot$
+		}
+	}
+}
+DUP
+PUSHINT 2044027631
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 1653242828
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 1474533890
+		EQUAL
+		IFJMPREF {
+			CALL $setAuctionCode$
+		}
+		DUP
+		PUSHINT 1478173800
+		EQUAL
+		IFJMPREF {
+			CALL $_everReserve$
+		}
+		DUP
+		PUSHINT 1625957992
+		EQUAL
+		IFJMPREF {
+			CALL $_loserFactor$
+		}
+		DUP
+		PUSHINT 1653242828
+		EQUAL
+		IFJMPREF {
+			CALL $startAuctions$
+		}
+	}
+	DUP
+	PUSHINT 1855684340
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 1719724527
+		EQUAL
+		IFJMPREF {
+			CALL $acceptBurnNEVER$
+		}
+		DUP
+		PUSHINT 1738741999
+		EQUAL
+		IFJMPREF {
+			CALL $_auctionCode$
+		}
+		DUP
+		PUSHINT 1756716863
+		EQUAL
+		IFJMPREF {
+			CALL $constructor$
+		}
+		DUP
+		PUSHINT 1855684340
+		EQUAL
+		IFJMPREF {
+			CALL $_neverRoot$
+		}
+	}
+	DUP
+	PUSHINT 2044027631
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 1956473804
+		EQUAL
+		IFJMPREF {
+			CALL $acceptMintNEVER$
+		}
+		DUP
+		PUSHINT 2042730769
+		EQUAL
+		IFJMPREF {
+			CALL $_minBid$
+		}
+		DUP
+		PUSHINT 2044027631
+		EQUAL
+		IFJMPREF {
+			CALL $setMinBid$
+		}
+	}
+}
+

@@ -1,0 +1,182 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"untilWin_","type":"bool"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "signUpToAuction",
+			"inputs": [
+				{"name":"auction_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "endAuction",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setTokenRoot",
+			"inputs": [
+				{"name":"tokenRoot_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setMinTraderBid",
+			"inputs": [
+				{"name":"minBid_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setMinAuctionBid",
+			"inputs": [
+				{"name":"minBid_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "placeTraderBid",
+			"inputs": [
+				{"name":"amount_","type":"uint128"},
+				{"name":"payload_","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "placeCumulativeBid",
+			"inputs": [
+				{"name":"commitHash_","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onBidPlaced",
+			"inputs": [
+				{"name":"bidAddress_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "placeCumulativeReveal",
+			"inputs": [
+				{"name":"priceReveal_","type":"uint128"},
+				{"name":"amountReveal_","type":"uint128"},
+				{"name":"salt_","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onBadReveal",
+			"inputs": [
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onPrizeReceive",
+			"inputs": [
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onBidRefund",
+			"inputs": [
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "collectAwards",
+			"inputs": [
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onAcceptTokensBurn",
+			"inputs": [
+				{"name":"amount","type":"uint128"},
+				{"name":"walletOwner","type":"address"},
+				{"name":"sender","type":"address"},
+				{"name":"remainingGasTo","type":"address"},
+				{"name":"payload","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "_tokenRoot",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_tokenRoot","type":"address"}
+			]
+		},
+		{
+			"name": "_auction",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_auction","type":"address"}
+			]
+		},
+		{
+			"name": "_bid",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_bid","type":"address"}
+			]
+		}
+	],
+	"data": [
+		{"key":1,"name":"_owner","type":"address"}
+	],
+	"events": [
+		{
+			"name": "revealFailed",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		}
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_owner","type":"address"},
+		{"name":"_tokenRoot","type":"address"},
+		{"name":"_auction","type":"address"},
+		{"name":"_bid","type":"address"},
+		{"name":"_minTraderBid","type":"uint128"},
+		{"name":"_minAuctionBid","type":"uint128"},
+		{"name":"_totalAmount","type":"uint128"},
+		{"name":"_awardsAmount","type":"uint128"}
+	]
+}

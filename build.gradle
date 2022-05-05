@@ -1,0 +1,128 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+
+plugins {
+    id "java"
+    id "application"
+    id "io.freefair.lombok" version "6.4.3" // apply false
+}
+
+repositories {
+    mavenCentral()
+    //mavenLocal()
+}
+
+// Global variables for all modules
+ext {
+    lo4jVersion = "2.17.1" // <2.15="CVE-2021-44228 Log4j 2 Vulnerability"
+    junitVersion = "5.8.2"
+    os = DefaultNativePlatform.currentOperatingSystem;
+    architecture = DefaultNativePlatform.currentArchitecture;
+}
+
+dependencies {
+
+    // Tests
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher" // https://github.com/gradle/gradle/issues/18627
+
+    // Logging
+    testImplementation "org.apache.logging.log4j:log4j-core:$lo4jVersion"
+    testImplementation "org.apache.logging.log4j:log4j-api:$lo4jVersion"
+
+    // JSON
+    testImplementation "com.google.code.gson:gson:2.8.9"
+
+    // Modules
+    implementation "tech.deplant.java4ever:java4ever-binding:1.1.1"
+    implementation "tech.deplant.java4ever:java4ever-framework:1.1.1"
+}
+
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    doFirst {
+        options.compilerArgs += [
+                '--module-path', classpath.asPath
+        ]
+        classpath = files()
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    options.compilerArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec).configureEach {
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    jvmArgs += "--enable-preview"
+}
+
+compileTestJava {
+    doFirst {
+        options.compilerArgs += [
+                '--module-path', classpath.asPath
+        ]
+        classpath = files()
+    }
+}
+test {
+
+    println name
+
+    def pathToLibs = System.getProperty("user.dir")
+    def processor =  architecture.getName()
+
+    if (os.isWindows()) {
+        pathToLibs += "/lib/win"
+    } else if(os.isMacOsX()) {
+        pathToLibs += "/lib/macosx"
+        if (
+            processor == "x86" || processor == "i386" || processor == "ia-32" ||
+            processor == "i686" || processor == "x86_64" || processor == "amd64" ||
+            processor == "x64" || processor == "x86-64"
+        ) {
+            pathToLibs += "/x86_64"
+        } else {
+            pathToLibs += "/aarch64"
+        }
+    } else if(os.isLinux()) {
+        pathToLibs += "/lib/linux"
+    }
+    println "EVER-SDK Library path: " + pathToLibs
+    systemProperty("java.library.path",pathToLibs)
+
+    useJUnitPlatform {
+        excludeTags 'server' // exclude some tags
+    }
+
+    // Show test results.
+    testLogging {
+        showStandardStreams = true
+        //exceptionFormat = TestExceptionFormat.FULL
+        events "passed", "skipped", "failed"
+    }
+
+    //javaLauncher = javaToolchains.launcherFor {
+    //    languageVersion = JavaLanguageVersion.of(17)
+    //}
+    jvmArgs += "--add-modules=jdk.incubator.foreign"
+    jvmArgs += "--enable-native-access=java4ever.binding"
+    //jvmArgs += "-Djava.library.path=c:/opt/sdk/"
+}
+

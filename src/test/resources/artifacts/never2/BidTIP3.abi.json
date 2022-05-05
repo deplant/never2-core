@@ -1,0 +1,123 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"id": "0xB1DC",
+			"inputs": [
+				{"name":"owner_","type":"address"},
+				{"name":"bidHash_","type":"uint256"},
+				{"components":[{"name":"elector","type":"address"},{"name":"factory","type":"address"},{"name":"phase","type":"uint16"},{"name":"bidDest","type":"address"},{"name":"prizeSource","type":"address"},{"name":"startDate","type":"uint64"},{"name":"minBid","type":"uint128"},{"name":"minPrice","type":"uint128"},{"name":"loserFactor","type":"uint128"}],"name":"rules_","type":"tuple"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onAcceptTokensTransfer",
+			"inputs": [
+				{"name":"value0","type":"address"},
+				{"name":"amount","type":"uint128"},
+				{"name":"sender","type":"address"},
+				{"name":"senderWallet","type":"address"},
+				{"name":"value4","type":"address"},
+				{"name":"payload","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onTip3RootDeployed",
+			"inputs": [
+				{"name":"bidWallet_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onTip3RootWalletInfo",
+			"inputs": [
+				{"name":"ownerWallet_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "reveal",
+			"inputs": [
+				{"name":"priceReveal_","type":"uint128"},
+				{"name":"amountReveal_","type":"uint128"},
+				{"name":"salt_","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onRevealAccepted",
+			"inputs": [
+				{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"bid_","type":"tuple"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "onTradeRequest",
+			"inputs": [
+				{"name":"winStatus_","type":"uint16"},
+				{"name":"price_","type":"uint128"},
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "loserTrade",
+			"inputs": [
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "loserUnlock",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "_rules",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"elector","type":"address"},{"name":"factory","type":"address"},{"name":"phase","type":"uint16"},{"name":"bidDest","type":"address"},{"name":"prizeSource","type":"address"},{"name":"startDate","type":"uint64"},{"name":"minBid","type":"uint128"},{"name":"minPrice","type":"uint128"},{"name":"loserFactor","type":"uint128"}],"name":"_rules","type":"tuple"}
+			]
+		},
+		{
+			"name": "_bid",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"_bid","type":"tuple"}
+			]
+		}
+	],
+	"data": [
+		{"key":1,"name":"_auction","type":"address"},
+		{"key":2,"name":"_owner","type":"address"}
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"components":[{"name":"elector","type":"address"},{"name":"factory","type":"address"},{"name":"phase","type":"uint16"},{"name":"bidDest","type":"address"},{"name":"prizeSource","type":"address"},{"name":"startDate","type":"uint64"},{"name":"minBid","type":"uint128"},{"name":"minPrice","type":"uint128"},{"name":"loserFactor","type":"uint128"}],"name":"_rules","type":"tuple"},
+		{"name":"_auction","type":"address"},
+		{"name":"_owner","type":"address"},
+		{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"_bid","type":"tuple"},
+		{"name":"_ownerTip3Wallet","type":"address"},
+		{"name":"_bidTip3Wallet","type":"address"}
+	]
+}

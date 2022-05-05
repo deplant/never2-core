@@ -1,0 +1,193 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"components":[{"name":"elector","type":"address"},{"name":"factory","type":"address"},{"name":"phase","type":"uint16"},{"name":"bidDest","type":"address"},{"name":"prizeSource","type":"address"},{"name":"startDate","type":"uint64"},{"name":"minBid","type":"uint128"},{"name":"minPrice","type":"uint128"},{"name":"loserFactor","type":"uint128"}],"name":"rules_","type":"tuple"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getMinimumValue",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"requiredValue","type":"uint128"}
+			]
+		},
+		{
+			"name": "getBidAddress",
+			"inputs": [
+				{"name":"bidder_","type":"address"}
+			],
+			"outputs": [
+				{"name":"bidAddress","type":"address"}
+			]
+		},
+		{
+			"name": "getCommitHash",
+			"inputs": [
+				{"name":"priceReveal_","type":"uint128"},
+				{"name":"amountReveal_","type":"uint128"},
+				{"name":"salt_","type":"uint256"}
+			],
+			"outputs": [
+				{"name":"bidHash","type":"uint256"}
+			]
+		},
+		{
+			"name": "getWinner",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"winner","type":"address"},
+				{"name":"winningPrice","type":"uint128"}
+			]
+		},
+		{
+			"name": "commit",
+			"inputs": [
+				{"name":"answerId","type":"uint32"},
+				{"name":"bidHash_","type":"uint256"}
+			],
+			"outputs": [
+				{"name":"value0","type":"address"}
+			]
+		},
+		{
+			"name": "destroy",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "startReveal",
+			"inputs": [
+				{"name":"quotingPrice_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "startTrade",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "acceptReveal",
+			"inputs": [
+				{"name":"answerId","type":"uint32"},
+				{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"bid_","type":"tuple"}
+			],
+			"outputs": [
+				{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"value0","type":"tuple"}
+			]
+		},
+		{
+			"name": "acceptLoserTrade",
+			"inputs": [
+				{"name":"answerId","type":"uint32"},
+				{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"bid_","type":"tuple"},
+				{"name":"amount_","type":"uint128"}
+			],
+			"outputs": [
+				{"name":"winStatus","type":"uint16"},
+				{"name":"price","type":"uint128"},
+				{"name":"amount","type":"uint128"}
+			]
+		},
+		{
+			"name": "_rules",
+			"inputs": [
+			],
+			"outputs": [
+				{"components":[{"name":"elector","type":"address"},{"name":"factory","type":"address"},{"name":"phase","type":"uint16"},{"name":"bidDest","type":"address"},{"name":"prizeSource","type":"address"},{"name":"startDate","type":"uint64"},{"name":"minBid","type":"uint128"},{"name":"minPrice","type":"uint128"},{"name":"loserFactor","type":"uint128"}],"name":"_rules","type":"tuple"}
+			]
+		},
+		{
+			"name": "_bidCount",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_bidCount","type":"uint64"}
+			]
+		},
+		{
+			"name": "_revealCount",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_revealCount","type":"uint64"}
+			]
+		}
+	],
+	"data": [
+		{"key":1,"name":"_factory","type":"address"},
+		{"key":2,"name":"_bidCode","type":"cell"},
+		{"key":3,"name":"_tx","type":"uint64"}
+	],
+	"events": [
+		{
+			"name": "bidPlaced",
+			"inputs": [
+				{"name":"participant","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "bidRevealed",
+			"inputs": [
+				{"name":"participant","type":"address"},
+				{"name":"amount","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "auctionRevealStarted",
+			"inputs": [
+				{"name":"quotingPrice","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "auctionFailed",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "auctionSucceded",
+			"inputs": [
+				{"name":"participant","type":"address"},
+				{"name":"price","type":"uint128"},
+				{"name":"amount","type":"uint128"}
+			],
+			"outputs": [
+			]
+		}
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"components":[{"name":"elector","type":"address"},{"name":"factory","type":"address"},{"name":"phase","type":"uint16"},{"name":"bidDest","type":"address"},{"name":"prizeSource","type":"address"},{"name":"startDate","type":"uint64"},{"name":"minBid","type":"uint128"},{"name":"minPrice","type":"uint128"},{"name":"loserFactor","type":"uint128"}],"name":"_rules","type":"tuple"},
+		{"name":"_factory","type":"address"},
+		{"name":"_bidCode","type":"cell"},
+		{"name":"_tx","type":"uint64"},
+		{"name":"_bidCount","type":"uint64"},
+		{"name":"_revealCount","type":"uint64"},
+		{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"_1stBid","type":"tuple"},
+		{"components":[{"name":"owner","type":"address"},{"name":"status","type":"uint16"},{"name":"winStatus","type":"uint16"},{"name":"bidHash","type":"uint256"},{"name":"salt","type":"uint256"},{"name":"priceReveal","type":"uint128"},{"name":"amountReveal","type":"uint128"},{"name":"priceFinal","type":"uint128"},{"name":"amountLeft","type":"uint128"}],"name":"_2ndBid","type":"tuple"}
+	]
+}

@@ -1,0 +1,258 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "startAuctions",
+			"inputs": [
+				{"name":"dtStart_","type":"uint64"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "revealAuctions",
+			"inputs": [
+				{"name":"minPrice_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "tradeAuctions",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setNEVERRoot",
+			"inputs": [
+				{"name":"neverRoot_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setEVERReserve",
+			"inputs": [
+				{"name":"everReserve_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setAuctionCode",
+			"inputs": [
+				{"name":"code_","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setEVERBidCode",
+			"inputs": [
+				{"name":"code_","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setNEVERBidCode",
+			"inputs": [
+				{"name":"code_","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setMinBid",
+			"inputs": [
+				{"name":"minBid_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setLoserFactor",
+			"inputs": [
+				{"name":"loserFactor_","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setGovernance",
+			"inputs": [
+				{"name":"governance_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setElector",
+			"inputs": [
+				{"name":"elector_","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "acceptMintEVER",
+			"inputs": [
+				{"name":"owner_","type":"address"},
+				{"name":"amount_","type":"uint128"},
+				{"name":"value2","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "acceptMintNEVER",
+			"inputs": [
+				{"name":"owner_","type":"address"},
+				{"name":"amount_","type":"uint128"},
+				{"name":"payload_","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "acceptBurnNEVER",
+			"inputs": [
+				{"name":"owner_","type":"address"},
+				{"name":"amount_","type":"uint128"},
+				{"name":"payload_","type":"cell"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "_governance",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_governance","type":"address"}
+			]
+		},
+		{
+			"name": "_elector",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_elector","type":"address"}
+			]
+		},
+		{
+			"name": "_neverRoot",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_neverRoot","type":"address"}
+			]
+		},
+		{
+			"name": "_everReserve",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_everReserve","type":"address"}
+			]
+		},
+		{
+			"name": "_auctionCode",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_auctionCode","type":"cell"}
+			]
+		},
+		{
+			"name": "_everBidCode",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_everBidCode","type":"cell"}
+			]
+		},
+		{
+			"name": "_neverBidCode",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_neverBidCode","type":"cell"}
+			]
+		},
+		{
+			"name": "_loserFactor",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_loserFactor","type":"uint128"}
+			]
+		},
+		{
+			"name": "_minBid",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_minBid","type":"uint128"}
+			]
+		},
+		{
+			"name": "_currentBuyNEVERAuction",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_currentBuyNEVERAuction","type":"address"}
+			]
+		},
+		{
+			"name": "_currentBuyEVERAuction",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"_currentBuyEVERAuction","type":"address"}
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+		{
+			"name": "auctionStarted",
+			"inputs": [
+				{"name":"auction","type":"address"},
+				{"name":"time","type":"uint64"},
+				{"name":"isBuyNEVER","type":"bool"}
+			],
+			"outputs": [
+			]
+		}
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_governance","type":"address"},
+		{"name":"_elector","type":"address"},
+		{"name":"_neverRoot","type":"address"},
+		{"name":"_everReserve","type":"address"},
+		{"name":"_auctionCode","type":"cell"},
+		{"name":"_everBidCode","type":"cell"},
+		{"name":"_neverBidCode","type":"cell"},
+		{"name":"_loserFactor","type":"uint128"},
+		{"name":"_minBid","type":"uint128"},
+		{"name":"_currentBuyNEVERAuction","type":"address"},
+		{"name":"_currentBuyEVERAuction","type":"address"},
+		{"name":"_nonce","type":"uint32"}
+	]
+}

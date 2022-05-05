@@ -1,0 +1,1685 @@
+.version sol 0.58.2
+
+.macro constructor
+DROP
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+GETGLOB 6
+THROWIF 51
+LDI 1
+ENDS
+.loc common/AbstractDAuction.sol, 180
+DROP
+GETGLOB 9
+GETGLOB 12
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 12
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 206
+.loc DAuctionCC.sol, 16
+GETGLOB 10
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+NEQINT 0
+GETGLOB 2
+GETGLOB 5
+DUP
+ISNULL
+PUSHCONT {
+	DROP
+	PUSHINT 0
+}
+IF
+EQUAL
+AND
+THROWIFNOT 200
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.globl	_checkTraderBid_internal
+.type	_checkTraderBid_internal, @function
+CALL $_checkTraderBid_internal_macro$
+
+.macro _checkTraderBid_internal_macro
+.loc DAuctionCC.sol, 24
+PUSHINT 999
+CALLREF {
+	DEPTH
+	ADDCONST -5
+	PICK
+	PUSHCONT {
+		NEWDICT
+	}
+	PUSHCONT {
+		DEPTH
+		ADDCONST -3
+		PICK
+		CTOS
+		LDU 4
+		LDMSGADDR
+		LDMSGADDR
+		LDGRAMS
+		PLDDICT
+		BLKDROP2 4, 1
+	}
+	IFELSE
+}
+PUSHINT 32
+DICTUGET
+PUSHCONT {
+	LDVARUINT32
+	DROP
+}
+PUSHCONT {
+	PUSHINT 0
+}
+IFELSE
+OVER
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+ADD
+UFITS 128
+GEQ
+THROWIFNOT 666
+.loc DAuctionCC.sol, 26
+GETGLOB 14
+GEQ
+THROWIFNOT 450
+.loc DAuctionCC.sol, 0
+
+.globl	_sendReveal_internal
+.type	_sendReveal_internal, @function
+CALL $_sendReveal_internal_macro$
+
+.macro _sendReveal_internal_macro
+.loc DAuctionCC.sol, 31
+OVER
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+ADD
+UFITS 128
+PUSHINT 999
+NEWDICT
+NEWC
+ROLL 3
+STVARUINT32
+ROTREV
+PUSHINT 32
+DICTUSETB
+.loc DAuctionCC.sol, 32
+XCHG S1, S3
+GETGLOB 13
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+STSLICECONST x3989680
+STDICT
+PUSHINT 1
+STUR 106
+ROLLREV 3
+NEWC
+STSLICECONST x68089253
+STU 128
+STU 128
+STU 256
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc DAuctionCC.sol, 0
+
+.globl	_sendAward_internal
+.type	_sendAward_internal, @function
+CALL $_sendAward_internal_macro$
+
+.macro _sendAward_internal_macro
+.loc DAuctionCC.sol, 36
+GETGLOB 17
+OVER
+SUB
+UFITS 128
+SETGLOB 17
+.loc DAuctionCC.sol, 37
+SWAP
+NEWC
+STSLICECONST x62_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 107
+STZEROES
+ENDC
+PUSHINT 1
+SENDRAWMSG
+.loc DAuctionCC.sol, 0
+
+.macro receive_macro
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc DAuctionCC.sol, 44
+GETGLOB 9
+GETGLOB 13
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 13
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+PUSHCONT {
+	.loc DAuctionCC.sol, 45
+	DEPTH
+	ADDCONST -4
+	PICK
+	.loc DAuctionCC.sol, 46
+	DUP
+	SEMPTY
+	PUSHCONT {
+		.loc DAuctionCC.sol, 47
+		DUP
+		LDU 16
+		LDU 128
+		POP S3
+		.loc DAuctionCC.sol, 48
+		OVER
+		EQINT 0
+		DUP
+		PUSHCONT {
+			DROP
+			PUSHINT 999
+			CALLREF {
+				DEPTH
+				ADDCONST -5
+				PICK
+				PUSHCONT {
+					NEWDICT
+				}
+				PUSHCONT {
+					DEPTH
+					ADDCONST -3
+					PICK
+					CTOS
+					LDU 4
+					LDMSGADDR
+					LDMSGADDR
+					LDGRAMS
+					PLDDICT
+					BLKDROP2 4, 1
+				}
+				IFELSE
+			}
+			PUSHINT 32
+			DICTUGET
+			PUSHCONT {
+				LDVARUINT32
+				DROP
+			}
+			PUSHCONT {
+				PUSHINT 0
+			}
+			IFELSE
+			OVER
+			GEQ
+		}
+		IF
+		PUSHCONT {
+			.loc DAuctionCC.sol, 49
+			DUP
+			CALLREF {
+				CALL $onBadReveal_internal_macro$
+			}
+		}
+		PUSHCONT {
+			OVER
+			EQINT 1
+			DUP
+			PUSHCONT {
+				DROP
+				PUSHINT 999
+				CALLREF {
+					DEPTH
+					ADDCONST -5
+					PICK
+					PUSHCONT {
+						NEWDICT
+					}
+					PUSHCONT {
+						DEPTH
+						ADDCONST -3
+						PICK
+						CTOS
+						LDU 4
+						LDMSGADDR
+						LDMSGADDR
+						LDGRAMS
+						PLDDICT
+						BLKDROP2 4, 1
+					}
+					IFELSE
+				}
+				PUSHINT 32
+				DICTUGET
+				PUSHCONT {
+					LDVARUINT32
+					DROP
+				}
+				PUSHCONT {
+					PUSHINT 0
+				}
+				IFELSE
+				OVER
+				GEQ
+			}
+			IF
+			PUSHCONT {
+				.loc DAuctionCC.sol, 51
+				DUP
+				CALLREF {
+					CALL $onBidRefund_internal_macro$
+				}
+				.loc DAuctionCC.sol, 0
+			}
+			IF
+		}
+		IFELSE
+		.loc DAuctionCC.sol, 0
+		DROP2
+	}
+	IFNOT
+	.loc DAuctionCC.sol, 0
+	DROP
+}
+IF
+.loc DAuctionCC.sol, 0
+CALLREF {
+	CALL $c7_to_c4$
+}
+
+.macro signUpToAuction
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 38
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $signUpToAuction_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro signUpToAuction_internal_macro
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 39
+DUP
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 601
+.loc common/AbstractDAuction.sol, 40
+SETGLOB 12
+.loc common/AbstractDAuction.sol, 0
+
+.macro endAuction
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 43
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $endAuction_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro endAuction_internal_macro
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 44
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 12
+.loc common/AbstractDAuction.sol, 45
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 13
+.loc common/AbstractDAuction.sol, 0
+
+.macro setTokenRoot
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 48
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $setTokenRoot_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setTokenRoot_internal_macro
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 49
+SETGLOB 11
+.loc common/AbstractDAuction.sol, 0
+
+.macro setMinTraderBid
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 52
+LDU 128
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $setMinTraderBid_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setMinTraderBid_internal_macro
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 53
+DUP
+PUSHINT 1000000
+GEQ
+THROWIFNOT 602
+.loc common/AbstractDAuction.sol, 54
+SETGLOB 14
+.loc common/AbstractDAuction.sol, 0
+
+.macro setMinAuctionBid
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 57
+LDU 128
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $setMinAuctionBid_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro setMinAuctionBid_internal_macro
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 58
+DUP
+PUSHINT 1000000000
+GEQ
+THROWIFNOT 603
+.loc common/AbstractDAuction.sol, 59
+SETGLOB 15
+.loc common/AbstractDAuction.sol, 0
+
+.macro placeTraderBid
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 63
+LDU 128
+LDREF
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $placeTraderBid_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.globl	placeTraderBid_internal
+.type	placeTraderBid_internal, @function
+CALL $placeTraderBid_internal_macro$
+
+.macro placeTraderBid_internal_macro
+.loc common/AbstractDAuction.sol, 63
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc common/AbstractDAuction.sol, 64
+GETGLOB 11
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 100
+.loc common/AbstractDAuction.sol, 65
+OVER
+CALLREF {
+	CALL $_checkTraderBid_internal_macro$
+}
+.loc common/AbstractDAuction.sol, 66
+GETGLOB 16
+PUSH S2
+ADD
+UFITS 128
+SETGLOB 16
+.loc common/AbstractDAuction.sol, 67
+TRUE
+GETGLOB 9
+PUSHINT 200000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 9
+ROLL 5
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 11
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 6
+NEWC
+STSLICECONST x20bfb3b8
+STU 128
+STSLICE
+STU 128
+ROLLREV 3
+NEWC
+STSLICE
+STI 1
+STREF
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc common/AbstractDAuction.sol, 0
+
+.macro placeCumulativeBid
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 79
+LDU 256
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $placeCumulativeBid_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro placeCumulativeBid_internal_macro
+.loc common/AbstractDAuction.sol, 79
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc common/DeplantBase.sol, 45
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+PUSHINT 0
+RAWRESERVE
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 81
+GETGLOB 11
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 82
+GETGLOB 12
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 206
+.loc common/AbstractDAuction.sol, 83
+DEPTH
+ADDCONST -2
+PICK
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GEQ
+THROWIFNOT 666
+.loc common/AbstractDAuction.sol, 84
+GETGLOB 12
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+PUSHINT 1
+STUR 111
+SWAP
+PUSHSLICE x69f2242c152b2a61
+NEWC
+STSLICE
+STU 256
+STBREFR
+ENDC
+PUSHINT 64
+SENDRAWMSG
+.loc common/AbstractDAuction.sol, 0
+
+.macro onBidPlaced
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 88
+OVER
+PUSHCONT {
+	LDREF
+	ENDS
+	CTOS
+}
+IF
+LDMSGADDR
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $onBidPlaced_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro onBidPlaced_internal_macro
+.loc common/AbstractDAuction.sol, 88
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc common/AbstractDAuction.sol, 180
+GETGLOB 9
+GETGLOB 12
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 12
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 206
+.loc common/DeplantBase.sol, 45
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+PUSHINT 0
+RAWRESERVE
+.loc common/DeplantBase.sol, 78
+GETGLOB 10
+.loc common/DeplantBase.sol, 92
+SWAP
+.loc common/AbstractDAuction.sol, 89
+SETGLOB 13
+.loc common/DeplantBase.sol, 50
+NEWC
+STSLICECONST x62_
+STSLICE
+PUSHINT 111
+STZEROES
+ENDC
+PUSHINT 128
+SENDRAWMSG
+.loc common/AbstractDAuction.sol, 0
+
+.macro placeCumulativeReveal
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 93
+OVER
+PUSHCONT {
+	LDU 128
+	LDU 128
+	LDREF
+	ENDS
+	CTOS
+}
+PUSHCONT {
+	LDU 128
+	LDU 128
+}
+IFELSE
+LDU 256
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $placeCumulativeReveal_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro placeCumulativeReveal_internal_macro
+.loc common/AbstractDAuction.sol, 93
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc common/DeplantBase.sol, 45
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+PUSHINT 0
+RAWRESERVE
+.loc common/AbstractDAuction.sol, 175
+GETGLOB 9
+GETGLOB 10
+SDEQ
+DUP
+PUSHCONT {
+	DROP
+	GETGLOB 10
+	PARSEMSGADDR
+	INDEX 3
+	PLDU 256
+	NEQINT 0
+}
+IF
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 95
+GETGLOB 11
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 96
+GETGLOB 12
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 206
+.loc common/AbstractDAuction.sol, 97
+OVER
+GETGLOB 16
+LEQ
+THROWIFNOT 457
+.loc common/AbstractDAuction.sol, 98
+OVER
+GETGLOB 15
+GEQ
+THROWIFNOT 457
+.loc common/AbstractDAuction.sol, 99
+GETGLOB 16
+PUSH S2
+SUB
+UFITS 128
+SETGLOB 16
+.loc common/AbstractDAuction.sol, 100
+CALLREF {
+	CALL $_sendReveal_internal_macro$
+}
+.loc common/AbstractDAuction.sol, 0
+
+.macro onBadReveal
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 104
+LDU 128
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $onBadReveal_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.globl	onBadReveal_internal
+.type	onBadReveal_internal, @function
+CALL $onBadReveal_internal_macro$
+
+.macro onBadReveal_internal_macro
+.loc common/AbstractDAuction.sol, 105
+GETGLOB 16
+ADD
+UFITS 128
+SETGLOB 16
+.loc common/AbstractDAuction.sol, 106
+PUSHREF {
+	.blob xc00000000000000000000000002218f593
+}
+PUSHINT 0
+SENDRAWMSG
+.loc common/AbstractDAuction.sol, 0
+
+.macro onPrizeReceive
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 110
+LDU 128
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $onPrizeReceive_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.globl	onPrizeReceive_internal
+.type	onPrizeReceive_internal, @function
+CALL $onPrizeReceive_internal_macro$
+
+.macro onPrizeReceive_internal_macro
+.loc common/AbstractDAuction.sol, 111
+GETGLOB 17
+ADD
+UFITS 128
+SETGLOB 17
+.loc common/AbstractDAuction.sol, 0
+
+.macro onBidRefund
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 115
+LDU 128
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $onBidRefund_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.globl	onBidRefund_internal
+.type	onBidRefund_internal, @function
+CALL $onBidRefund_internal_macro$
+
+.macro onBidRefund_internal_macro
+.loc common/AbstractDAuction.sol, 116
+GETGLOB 16
+ADD
+UFITS 128
+SETGLOB 16
+.loc common/AbstractDAuction.sol, 0
+
+.macro collectAwards
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 132
+LDU 128
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $collectAwards_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro collectAwards_internal_macro
+.loc common/AbstractDAuction.sol, 132
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc common/AbstractDAuction.sol, 133
+GETGLOB 11
+PARSEMSGADDR
+INDEX 3
+PLDU 256
+THROWIFNOT 100
+.loc common/AbstractDAuction.sol, 134
+PUSHREF {
+}
+.loc common/AbstractDAuction.sol, 135
+OVER
+GETGLOB 16
+LEQ
+THROWIFNOT 457
+.loc common/AbstractDAuction.sol, 136
+MYADDR
+GETGLOB 9
+DUP
+ROLL 4
+PUSHINT 500000
+.loc common/DeplantBase.sol, 40
+MYADDR
+PARSEMSGADDR
+THIRD
+CALLREF {
+	CALL $__gasToTon_macro$
+}
+.loc common/DeplantBase.sol, 0
+GETGLOB 11
+TRUE
+NEWC
+STSLICECONST x6_
+STI 1
+STSLICECONST x1_
+STSLICE
+SWAP
+STGRAMS
+PUSHINT 1
+STUR 107
+ROLLREV 5
+NEWC
+STSLICECONST x0c98682c
+STU 128
+STSLICE
+ROLLREV 3
+NEWC
+STSLICE
+ROTREV
+NEWC
+STSLICE
+STREF
+STBREFR
+STBREFR
+STBREFR
+ENDC
+PUSHINT 0
+SENDRAWMSG
+.loc common/AbstractDAuction.sol, 0
+
+.macro onAcceptTokensBurn
+DROP
+GETGLOB 6
+THROWIFNOT 76
+GETGLOB 2
+ISNULL
+IFREF {
+	CALL $c4_to_c7$
+}
+.loc common/AbstractDAuction.sol, 145
+OVER
+PUSHCONT {
+	LDU 128
+	LDREF
+	ENDS
+	CTOS
+}
+PUSHCONT {
+	LDU 128
+}
+IFELSE
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+.loc common/AbstractDAuction.sol, 0
+CALLREF {
+	CALL $onAcceptTokensBurn_internal_macro$
+}
+DROP
+CALLREF {
+	CALL $c7_to_c4$
+}
+THROW 0
+
+.macro onAcceptTokensBurn_internal_macro
+.loc common/AbstractDAuction.sol, 145
+BLKDROP 3
+DEPTH
+ADDCONST -5
+PICK
+THROWIF 72
+.loc common/AbstractDAuction.sol, 152
+GETGLOB 9
+GETGLOB 11
+SDEQ
+THROWIFNOT 201
+.loc common/AbstractDAuction.sol, 153
+GETGLOB 16
+PUSH S2
+SUB
+UFITS 128
+SETGLOB 16
+.loc common/AbstractDAuction.sol, 154
+SWAP
+CALLREF {
+	CALL $_sendAward_internal_macro$
+}
+.loc common/AbstractDAuction.sol, 0
+
+.globl	_reversePrice_internal
+.type	_reversePrice_internal, @function
+CALL $_reversePrice_internal_macro$
+
+.macro _reversePrice_internal_macro
+.loc common/DeplantBase.sol, 56
+PUSHINT 1000000000
+DUP
+ROT
+MULDIVC
+UFITS 128
+.loc common/DeplantBase.sol, 0
+
+.globl	_exchange_internal
+.type	_exchange_internal, @function
+CALL $_exchange_internal_macro$
+
+.macro _exchange_internal_macro
+.loc common/DeplantBase.sol, 66
+PUSHINT 1000000000
+MULDIV
+UFITS 128
+.loc common/DeplantBase.sol, 0
+
+.macro c4_to_c7
+PUSHROOT
+CTOS
+LDU 256 ; pubkey c4
+LDU 64 ; pubkey timestamp c4
+LDU 1 ; ctor flag
+NIP
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDREF
+ENDS
+CTOS
+LDMSGADDR
+LDU 128
+LDU 128
+LDU 128
+LDREF
+ENDS
+CTOS
+LDU 128
+ENDS
+SETGLOB 17
+SETGLOB 16
+SETGLOB 15
+SETGLOB 14
+SETGLOB 13
+SETGLOB 12
+SETGLOB 11
+SETGLOB 10
+SETGLOB 3
+SETGLOB 2
+
+.macro c4_to_c7_with_init_storage
+PUSHROOT
+CTOS
+SBITS
+GTINT 1
+PUSHCONT {
+	PUSHINT 0
+	PUSHROOT
+	CTOS
+	PLDDICT ; D
+	PUSHINT 1
+	OVER
+	PUSHINT 64
+	DICTUGET
+	PUSHCONT {
+		PUSHREFSLICE {
+			.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+		}
+	}
+	IFNOT
+	PUSHREFSLICE {
+		.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+	}
+	BLKPUSH 2, 0
+	PUSHINT 0
+	BLKPUSH 3, 0
+	SETGLOB 17
+	SETGLOB 16
+	SETGLOB 15
+	SETGLOB 14
+	SETGLOB 13
+	SETGLOB 12
+	SETGLOB 11
+	SETGLOB 10
+	PUSHINT 64
+	DICTUGET
+	THROWIFNOT 61
+	PLDU 256
+	SETGLOB 2
+	PUSHINT 0 ; timestamp
+	SETGLOB 3
+	PUSHINT 1000000000
+	SETGLOB 14
+	PUSHINT 10000000000
+	SETGLOB 15
+}
+IFREFELSE {
+	CALL $c4_to_c7$
+}
+
+.macro c7_to_c4
+GETGLOB 17
+GETGLOB 16
+GETGLOB 15
+GETGLOB 14
+GETGLOB 13
+GETGLOB 12
+GETGLOB 11
+GETGLOB 10
+GETGLOB 3
+GETGLOB 2
+NEWC
+STU 256
+STU 64
+STONE
+STSLICE
+ROLLREV 7
+NEWC
+STSLICE
+ROLLREV 6
+NEWC
+STSLICE
+ROLLREV 5
+NEWC
+STSLICE
+STU 128
+STU 128
+STU 128
+SWAP
+NEWC
+STU 128
+STBREFR
+STBREFR
+STBREFR
+STBREFR
+ENDC
+POPROOT
+
+.macro upd_only_time_in_c4
+PUSHROOT
+CTOS
+LDU 256
+LDU 64
+NIP
+GETGLOB 3
+ROT
+NEWC
+STU 256
+STU 64
+STSLICE
+ENDC
+POPROOT
+
+.internal-alias :main_internal, 0
+.internal :main_internal
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSH S2
+CTOS
+LDU 4 ; bounced tail
+LDMSGADDR ; bounced src tail
+DROP
+SETGLOB 9
+MODPOW2 1
+IFRET
+OVER
+SEMPTY ; isEmpty
+DUP
+PUSHCONT {
+	DROP
+	OVER
+	LDUQ 32  ; [funcId] body' ok
+	THROWIFNOT 60
+	OVER
+	EQINT 0 ; funcId body' isZero
+	DUP
+	PUSHCONT {
+		BLKDROP2 2, 1
+	}
+	IF
+}
+IFNOT
+IFJMPREF {
+	CALL $receive_macro$
+}
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.internal-alias :main_external, -1
+.internal :main_external
+PUSHROOT
+CTOS
+SBITS
+NEQINT 1
+SETGLOB 6
+PUSHREFSLICE {
+	.blob x8000000000000000000000000000000000000000000000000000000000000000001_
+}
+SETGLOB 9
+OVER
+CALLREF {
+	CALL $c4_to_c7_with_init_storage$
+}
+LDU 1 ; haveSign msgSlice
+SWAP
+PUSHCONT {
+	PUSHINT 512
+	LDSLICEX ; signatureSlice msgSlice
+	DUP
+	HASHSU ; signatureSlice msgSlice hashMsgSlice
+	ROT
+	GETGLOB 2
+	DUP
+	SETGLOB 5
+	CHKSIGNU ; msgSlice isSigned
+	THROWIFNOT 40
+}
+IF
+LDU 64 ; timestamp msgSlice
+SWAP
+CALL $replay_protection_macro$
+LDU 32 ; expireAt msgSlice
+SWAP
+NOW ; msgSlice expireAt now
+GREATER ; msgSlice expireAt>now
+THROWIFNOT 57
+LDU 32 ; funcId body
+SWAP
+CALLREF {
+	CALL $public_function_selector$
+}
+THROW 60
+
+.macro _tokenRoot
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 11
+OVER
+PUSHCONT {
+	PUSHSLICE xc00000000000000000000000009e88af1c
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _auction
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 12
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000bfdc64ca
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro _bid
+DROP
+ENDS
+CALLREF {
+	CALL $c4_to_c7$
+}
+GETGLOB 13
+OVER
+PUSHCONT {
+	PUSHSLICE xc0000000000000000000000000e9935d42
+	NEWC
+	STSLICE
+	STSLICE
+	ENDC
+	PUSHINT 0
+	SENDRAWMSG
+}
+IF
+THROW 0
+
+.macro public_function_selector
+DUP
+PUSHINT 1771265346
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 512274204
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 173162961
+		EQUAL
+		IFJMPREF {
+			CALL $placeTraderBid$
+		}
+		DUP
+		PUSHINT 194287172
+		EQUAL
+		IFJMPREF {
+			CALL $setTokenRoot$
+		}
+		DUP
+		PUSHINT 355150433
+		EQUAL
+		IFJMPREF {
+			CALL $onBidPlaced$
+		}
+		DUP
+		PUSHINT 512274204
+		EQUAL
+		IFJMPREF {
+			CALL $_tokenRoot$
+		}
+	}
+	DUP
+	PUSHINT 1059507976
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 677320106
+		EQUAL
+		IFJMPREF {
+			CALL $placeCumulativeBid$
+		}
+		DUP
+		PUSHINT 1018987107
+		EQUAL
+		IFJMPREF {
+			CALL $endAuction$
+		}
+		DUP
+		PUSHINT 1039986992
+		EQUAL
+		IFJMPREF {
+			CALL $collectAwards$
+		}
+		DUP
+		PUSHINT 1059507976
+		EQUAL
+		IFJMPREF {
+			CALL $onBidRefund$
+		}
+	}
+	DUP
+	PUSHINT 1611145349
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 1071408330
+		EQUAL
+		IFJMPREF {
+			CALL $_auction$
+		}
+		DUP
+		PUSHINT 1395342836
+		EQUAL
+		IFJMPREF {
+			CALL $setMinAuctionBid$
+		}
+		DUP
+		PUSHINT 1541052536
+		EQUAL
+		IFJMPREF {
+			CALL $placeCumulativeReveal$
+		}
+		DUP
+		PUSHINT 1611145349
+		EQUAL
+		IFJMPREF {
+			CALL $onPrizeReceive$
+		}
+	}
+	DUP
+	PUSHINT 1771265346
+	LEQ
+	IFJMPREF {
+		DUP
+		PUSHINT 1631912695
+		EQUAL
+		IFJMPREF {
+			CALL $onBadReveal$
+		}
+		DUP
+		PUSHINT 1652235413
+		EQUAL
+		IFJMPREF {
+			CALL $constructor$
+		}
+		DUP
+		PUSHINT 1745391003
+		EQUAL
+		IFJMPREF {
+			CALL $onAcceptTokensBurn$
+		}
+		DUP
+		PUSHINT 1771265346
+		EQUAL
+		IFJMPREF {
+			CALL $_bid$
+		}
+	}
+}
+DUP
+PUSHINT 2133603898
+LEQ
+IFJMPREF {
+	DUP
+	PUSHINT 1850827717
+	EQUAL
+	IFJMPREF {
+		CALL $setMinTraderBid$
+	}
+	DUP
+	PUSHINT 2133603898
+	EQUAL
+	IFJMPREF {
+		CALL $signUpToAuction$
+	}
+}
+

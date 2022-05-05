@@ -1,0 +1,401 @@
+{
+  "ABI version": 2,
+  "version": "2.1",
+  "header": [
+    "pubkey",
+    "time",
+    "expire"
+  ],
+  "functions": [
+    {
+      "name": "constructor",
+      "inputs": [
+        {
+          "name": "notElectorArg",
+          "type": "address"
+        },
+        {
+          "name": "validationStartTimeArg",
+          "type": "uint256"
+        },
+        {
+          "name": "validationDurationArg",
+          "type": "uint256"
+        },
+        {
+          "name": "depoolsArg",
+          "type": "map(address,bool)"
+        },
+        {
+          "name": "ownerArg",
+          "type": "address"
+        },
+        {
+          "name": "depooledParticipantIfSlashedArg",
+          "type": "address"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "signUp",
+      "inputs": [
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "setIsElected",
+      "inputs": [
+        {
+          "name": "result",
+          "type": "bool"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "setQuotation",
+      "inputs": [
+        {
+          "name": "hashedQuotation",
+          "type": "uint256"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "requestRevealing",
+      "inputs": [
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "revealQuotation",
+      "inputs": [
+        {
+          "name": "oneUSDCost",
+          "type": "uint128"
+        },
+        {
+          "name": "salt",
+          "type": "uint256"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "slash",
+      "inputs": [
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "onTransfer",
+      "inputs": [
+        {
+          "name": "source",
+          "type": "address"
+        },
+        {
+          "name": "amount_",
+          "type": "uint128"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "onRoundComplete",
+      "inputs": [
+        {
+          "name": "roundId",
+          "type": "uint64"
+        },
+        {
+          "name": "reward",
+          "type": "uint64"
+        },
+        {
+          "name": "ordinaryStake",
+          "type": "uint64"
+        },
+        {
+          "name": "vestingStake",
+          "type": "uint64"
+        },
+        {
+          "name": "lockStake",
+          "type": "uint64"
+        },
+        {
+          "name": "reinvest",
+          "type": "bool"
+        },
+        {
+          "name": "reason",
+          "type": "uint8"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "depools",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "depools",
+          "type": "map(address,bool)"
+        }
+      ]
+    },
+    {
+      "name": "activeDepool",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "activeDepool",
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "name": "ended",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "ended",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "terminationStarted",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "terminationStarted",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "amountDeposited",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "amountDeposited",
+          "type": "uint128"
+        }
+      ]
+    },
+    {
+      "name": "amountToSendExternally",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "amountToSendExternally",
+          "type": "uint128"
+        }
+      ]
+    },
+    {
+      "name": "depooledParticipant",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "depooledParticipant",
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "name": "owner",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "owner",
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "name": "stakeSize",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "stakeSize",
+          "type": "uint128"
+        }
+      ]
+    },
+    {
+      "name": "notElector",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "notElector",
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "name": "validationStartTime",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "validationStartTime",
+          "type": "uint256"
+        }
+      ]
+    },
+    {
+      "name": "validationDuration",
+      "inputs": [
+      ],
+      "outputs": [
+        {
+          "name": "validationDuration",
+          "type": "uint256"
+        }
+      ]
+    }
+  ],
+  "data": [
+  ],
+  "events": [
+    {
+      "name": "RevealPlz",
+      "inputs": [
+        {
+          "name": "hashedQuotation",
+          "type": "uint256"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "elected",
+      "inputs": [
+        {
+          "name": "result",
+          "type": "bool"
+        }
+      ],
+      "outputs": [
+      ]
+    },
+    {
+      "name": "slashed",
+      "inputs": [
+      ],
+      "outputs": [
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "name": "_pubkey",
+      "type": "uint256"
+    },
+    {
+      "name": "_timestamp",
+      "type": "uint64"
+    },
+    {
+      "name": "_constructorFlag",
+      "type": "bool"
+    },
+    {
+      "name": "depools",
+      "type": "map(address,bool)"
+    },
+    {
+      "name": "activeDepool",
+      "type": "address"
+    },
+    {
+      "name": "ended",
+      "type": "bool"
+    },
+    {
+      "name": "terminationStarted",
+      "type": "bool"
+    },
+    {
+      "name": "amountDeposited",
+      "type": "uint128"
+    },
+    {
+      "name": "amountToSendExternally",
+      "type": "uint128"
+    },
+    {
+      "name": "depooledParticipant",
+      "type": "address"
+    },
+    {
+      "name": "owner",
+      "type": "address"
+    },
+    {
+      "name": "stakeSize",
+      "type": "uint128"
+    },
+    {
+      "name": "quotationToReveal",
+      "type": "uint256"
+    },
+    {
+      "name": "currentQuotationHash",
+      "type": "uint256"
+    },
+    {
+      "name": "currentQuotationTime",
+      "type": "uint256"
+    },
+    {
+      "name": "isElected",
+      "type": "bool"
+    },
+    {
+      "name": "isSlashed",
+      "type": "bool"
+    },
+    {
+      "name": "notElector",
+      "type": "address"
+    },
+    {
+      "name": "validationStartTime",
+      "type": "uint256"
+    },
+    {
+      "name": "validationDuration",
+      "type": "uint256"
+    },
+    {
+      "name": "depooledParticipantIfSlashed",
+      "type": "address"
+    }
+  ]
+}

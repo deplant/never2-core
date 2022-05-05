@@ -1,0 +1,63 @@
+{
+  "buildPath": "D:/idea_workspace/never2-core/src/test/resources/artifacts/never2",
+  "sourcePath": "D:/idea_workspace/never2-core/src/test/resources/solidity/never2",
+  "solc": {
+    "path": "D:/git/TON-Solidity-Compiler/build/solc/Release/solc"
+  },
+  "linker": {
+    "path": "D:/git/TVM-linker/target/release/tvm_linker",
+    "stdLibPath": "D:/git/TON-Solidity-Compiler/lib/stdlib_sol.tvm"
+  },
+  "contracts": [
+    {
+      "name": "TIP3Root",
+      "abiPath": "/artifacts/tip31/TokenRoot.abi.json",
+      "tvcPath": "/artifacts/tip31/TokenRoot.tvc"
+    },
+    {
+      "name": "TIP3Wallet",
+      "abiPath": "/artifacts/tip31/TokenWallet.abi.json",
+      "tvcPath": "/artifacts/tip31/TokenWallet.tvc"
+    },
+    {
+      "name": "NotElector",
+      "abiPath": "/artifacts/never_pruvendo/NotElector.abi.json",
+      "tvcPath": "/artifacts/never_pruvendo/NotElector.tvc"
+    },
+    {
+      "name": "DePoolMock",
+      "abiPath": "/artifacts/never_pruvendo/DePoolMock.abi.json",
+      "tvcPath": "/artifacts/never_pruvendo/DePoolMock.tvc"
+    },
+    {
+      "name": "NotValidator",
+      "abiPath": "/artifacts/never_pruvendo/NotValidator.abi.json",
+      "tvcPath": "/artifacts/never_pruvendo/NotValidator.tvc"
+    },
+    {
+      "name": "AuctionManager",
+      "abiPath": "/artifacts/never2/AuctionManager.abi.json",
+      "tvcPath": "/artifacts/never2/AuctionManager.tvc"
+    },
+    {
+      "name": "Auction",
+      "abiPath": "/artifacts/never2/Auction.abi.json",
+      "tvcPath": "/artifacts/never2/Auction.tvc"
+    },
+    {
+      "name": "BidCC",
+      "abiPath": "/artifacts/never2/BidCC.abi.json",
+      "tvcPath": "/artifacts/never2/BidCC.tvc"
+    },
+    {
+      "name": "BidTIP3",
+      "abiPath": "/artifacts/never2/BidTIP3.abi.json",
+      "tvcPath": "/artifacts/never2/BidTIP3.tvc"
+    },
+    {
+      "name": "BidEVER",
+      "abiPath": "/artifacts/never2/BidEVER.abi.json",
+      "tvcPath": "/artifacts/never2/BidEVER.tvc"
+    }
+  ]
+}
